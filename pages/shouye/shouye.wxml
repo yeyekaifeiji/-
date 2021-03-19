@@ -1,0 +1,124 @@
+<!--pages/shouye/shouye.wxml-->
+<view class="container">
+  <view class="user-info-box">
+    <navigator url="/pages/user/user"  wx:if="{{isLogin==true}}">
+      <view class="user-info">
+        <view class="info-hd">
+          <image class="user-avatar" src="/images/touxiang.jpg"></image>
+          <view class="user-title">
+            <text class="user-name">用户{{device_ID}}</text>
+            <text class="user-id">已登录</text>
+          </view>
+          <view class="btn-open">
+            <image class="btn-enter" src="/images/enter.png"></image>
+        </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="/pages/login/login" class="user-info" wx:else>
+      <view class="info-hd">
+        <image class="user-avatar" src="/images/none.png"></image>
+        <view class="user-title">
+          <text class="user-name">用户</text>
+          <text class="user-id">未登录</text>
+        </view>
+        <text class="bind-btn">前往登录</text>
+        <view class="btn-open">
+          <image class="btn-enter" src="/images/enter.png"></image>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class="more-list">
+    <view  class="issue-link">
+        <view class="more-btn">
+            <text class="btn-name">设备状态</text>
+            <view class="btn-open">
+                    <text wx:if = "{{online==true}}" class="btn-text">在线</text>
+                    <text wx:else class="btn-text">离线--历史数据</text>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">空气温度</text>
+            <view class="btn-open">
+                <text class="btn-text">{{ambienTem}} °C</text>                
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">空气湿度</text>
+            <view class="btn-open">
+                <text class="btn-text">{{ambienHum}}%</text>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">光照强度</text>
+            <view class="btn-open">
+                <text class="btn-text">{{sunlight}} lx</text>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">土壤湿度</text>
+            <view class="btn-open">
+                <text class="btn-text" wx:if="{{soil_Hum_Volt > 3.2}}">非常干</text>
+                <text class="btn-text" wx:elif="{{soil_Hum_Volt > 3.05}}">干</text>
+                <text class="btn-text" wx:elif="{{soil_Hum_Volt > 2.8}}">普通</text>
+                <text class="btn-text" wx:elif="{{soil_Hum_Volt >= 2.6}}">湿</text>
+                <text class="btn-text" wx:elif="{{soil_Hum_Volt < 2.6 && soil_Hum_Volt > 2.2}}">非常湿</text>
+                <text class="btn-text" wx:else >数据错误</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">自动模式</text>
+            <view class="btn-open">
+                <view class="body-view">
+                    <switch checked="{{switch1Checked}}" bindchange="switch1Change"/>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">温室灯</text>
+            <view class="btn-open">
+                <view class="body-view">
+                    <switch checked="{{switch1Checked}}" bindchange="switch1Change"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">风扇</text>
+            <view class="btn-open">
+                <view class="body-view">
+                    <switch checked="{{switch2Checked}}" bindchange="switch2Change"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">水泵</text>
+            <view class="btn-open">
+                <view class="body-view">
+                    <switch checked="{{switch3Checked}}" bindchange="switch3Change"/>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>

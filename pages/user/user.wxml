@@ -1,0 +1,48 @@
+<!--pages/user/user.wxml-->
+
+<view class="more-list">
+    <view  class="issue-link">
+        <view class="more-btn">
+            <text class="btn-name">设备状态</text>
+            <view class="btn-open">
+                    <text wx:if = "{{online==true}}" class="btn-text">在线</text>
+                    <text wx:else class="btn-text">离线</text>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">所有人</text>
+            <view class="btn-open">
+                <text class="btn-text">{{auth_info}}</text>                
+            </view>
+        </view>
+    </view>
+     <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">创建时间</text>
+            <view class="btn-open">
+                <text class="btn-text">{{create_time}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">最近一次在线时间</text>
+            <view class="btn-open">
+                <text class="btn-text">{{last_ct}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="about-link">
+        <view class="more-btn">
+            <text class="btn-name">地理位置</text>
+            <view class="btn-open">
+                <text class="btn-text"> </text>
+            </view>
+        </view>
+    </view>
+    <button class="login-btn" type="warm" loading="{{loading}}" bindtap="Logout">
+        退出登录
+    </button>
+</view>

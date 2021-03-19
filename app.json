@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/shouye/shouye",
+    "pages/login/login",
+    "pages/user/user",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "智能农场",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请点击确定"
+    }
+  },
+  "sitemapLocation": "sitemap39.json"
+}
